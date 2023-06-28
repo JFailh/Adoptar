@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Bienvenido a AdoptAr</h1>
+
+<h2>Mira la lista de perritos que ya fueron adoptados</h2>
+
+<ul>
+    {% for perro in perros %}
+        <li><a href="{% url 'detailperro' perro.id %}">{{ perro.nombre }}</a></li>
+    {% empty %}
+        <li>No hay perros disponibles.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'perrolist' %}">Adoptate un perro</a>
+
+{% endblock %}

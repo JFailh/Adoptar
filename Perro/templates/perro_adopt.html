@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h3>¿VAS A ADOPTARME?</h3>
+
+    <div class="details">
+        <p>¿Estás seguro de que quieres adoptar a "{{ perro.nombre }}"?</p>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+        <a class="cancel" href="{% url 'perrolist' %}" class="button">Cancelar</a>
+    </form>
+{% endblock %}

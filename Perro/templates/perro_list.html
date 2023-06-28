@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+    <h3>Lista de perros</h3>
+
+    <ul>
+        {% for perro in perros %}
+        {% if perro.estado %}
+            <li><a href="{% url 'detailperro' perro.id %}">{{ perro.nombre }}</a></li>
+        {% endif %}
+        {% empty %}
+            <li>No hay perros disponibles.</li>
+        {% endfor %}
+    </ul>
+
+    <a class="cancel" href="{% url 'createperro' %}" class="button">Necesito que me adopten!</a>
+{% endblock %}
