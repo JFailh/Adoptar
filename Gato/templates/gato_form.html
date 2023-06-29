@@ -1,18 +1,22 @@
 {% extends 'base.html' %}
 
 {% block heading_2 %}
-    {% if perro %}{{ perro.nombre }}{% else %}Nuevo perro{% endif %}
+    {% if gato %}{{ gato.nombre }}{% else %}Nuevo gato{% endif %}
 {% endblock %}
 {% block content %}
+    <section>
     <h3>
-        {% if perro %}Actualizar{% else %}Crear{% endif %}
-        perro
+        {% if gato %}Actualizar{% else %}Crear{% endif %}
+        gato
     </h3>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_div }}
-        <button type="submit">Guardar</button>
-        <a  href="{% url 'perrolist' %}" class="button">Cancelar</a>
+    </section>
+    <section class="btn-redirect"> 
+        <button class="adopt-btn" type="submit">Guardar</button>
+        <a  class="adopt-btn" href="{% url 'gatolist' %}" class="button">Cancelar</a>
     </form>
+    </section>
 {% endblock %}

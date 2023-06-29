@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  
+    <section>
     <h3>Lista de perros</h3>
 
-    <ul>
+    <ul class="section-list">
         {% for perro in perros %}
         {% if perro.estado %}
             <li><a href="{% url 'detailperro' perro.id %}">{{ perro.nombre }}</a></li>
@@ -13,6 +13,8 @@
             <li>No hay perros disponibles.</li>
         {% endfor %}
     </ul>
-
-    <a class="cancel" href="{% url 'createperro' %}" class="button">Necesito que me adopten!</a>
+</section>
+    <section>
+    <a class="adopt-btn" href="{% url 'createperro' %}" >Necesito que me adopten!</a>
+    </section>
 {% endblock %}

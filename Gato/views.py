@@ -1,33 +1,33 @@
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
-from Perro.models import Perro
+from Gato.models import Gato
 
-class PerroList(ListView,LoginRequiredMixin):
-    model = Perro
-    template_name = 'perro_list.html'
-    context_object_name = 'perros'
+class GatoList(ListView,LoginRequiredMixin):
+    model = Gato
+    template_name = 'gato_list.html'
+    context_object_name = 'gatos'
 
-class PerroCreate(CreateView,LoginRequiredMixin):
-    model = Perro
-    template_name = 'perro_form.html'
+class GatoCreate(CreateView,LoginRequiredMixin):
+    model = Gato
+    template_name = 'gato_form.html'
     fields = ['nombre','edad','raza']
-    success_url = reverse_lazy('perrolist')
+    success_url = reverse_lazy('gatolist')
 
 
-class PerroDetail(DetailView,LoginRequiredMixin):
-    model = Perro
-    template_name = 'perro_detail.html'
-    context_object_name = 'perro'
+class GatoDetail(DetailView,LoginRequiredMixin):
+    model = Gato
+    template_name = 'gato_detail.html'
+    context_object_name = 'gato'
 
-class PerroUpdate(UpdateView,LoginRequiredMixin):
-    model = Perro
-    template_name = 'perro_form.html'
+class GatoUpdate(UpdateView,LoginRequiredMixin):
+    model = Gato
+    template_name = 'gato_form.html'
     fields = ['nombre','edad','raza']
-    success_url = reverse_lazy('perrolist')
+    success_url = reverse_lazy('gatolist')
 
 
-class PerroAdopt(DeleteView,LoginRequiredMixin):
-    model = Perro
-    template_name = 'perro_adopt.html'
+class GatoAdopt(DeleteView,LoginRequiredMixin):
+    model = Gato
+    template_name = 'gato_adopt.html'
     success_url = reverse_lazy('home')

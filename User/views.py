@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from User.forms import CustomUserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from Perro.models import Perro
-#from Gato.models import Gato
+from Gato.models import Gato
 
 
 class RegistroUsuarioView(CreateView):
@@ -19,7 +19,7 @@ class HomeClienteView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['perros'] = Perro.objects.filter(estado=False)
-        #context['gatos'] = Gato.objects.filter(estado=False)
+        context['gatos'] = Gato.objects.filter(estado=False)
         return context
     
 

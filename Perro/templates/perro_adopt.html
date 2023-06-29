@@ -2,14 +2,18 @@
 
 
 {% block content %}
+<section>
     <h3>¿VAS A ADOPTARME?</h3>
 
     <div class="details">
         <p>¿Estás seguro de que quieres adoptar a "{{ perro.nombre }}"?</p>
     </div>
+</section>
+<section class="btn-redirect">
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Confirmar</button>
-        <a class="cancel" href="{% url 'perrolist' %}" class="button">Cancelar</a>
+        <button class="adopt-btn" type="submit">Confirmar</button>
+        <a class="adopt-btn" href="{% url 'perrolist' %}" class="button">Cancelar</a>
     </form>
+    </section>
 {% endblock %}

@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<section>
   <h1>Registrate !</h1>
   <form method="post">
     {% csrf_token %}
@@ -25,4 +26,5 @@
     <a href="{% url 'logout' %}" class="btn btn-secondary button" id="login">Volver</a>
     
   </div>
+</section>
 {% endblock %}

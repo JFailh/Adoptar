@@ -2,18 +2,34 @@
 
 {% block content %}
 
+<section class="bienvenido">
 <h1>Bienvenido a AdoptAr</h1>
-
+</section>
+<section >
 <h2>Mira la lista de perritos que ya fueron adoptados</h2>
 
-<ul>
+<ul class="section-list">
     {% for perro in perros %}
         <li><a href="{% url 'detailperro' perro.id %}">{{ perro.nombre }}</a></li>
     {% empty %}
         <li>No hay perros disponibles.</li>
     {% endfor %}
 </ul>
+</section>
+<section>
+<h2>Mira la lista de gatitos que ya fueron adoptados</h2>
 
-<a href="{% url 'perrolist' %}">Adoptate un perro</a>
+<ul class="section-list">
+    {% for gato in gatos %}
+        <li><a href="{% url 'detailgato' gato.id %}">{{ gato.nombre }}</a></li>
+    {% empty %}
+        <li>No hay gatos disponibles.</li>
+    {% endfor %}
+</ul>
+</section>
+<section class="btn-redirect">
+<a class="adopt-btn" href="{% url 'perrolist' %}">Adoptate un perro</a>
 
+<a class="adopt-btn" href="{% url 'gatolist' %}">Adoptate un gato</a>
+</section>
 {% endblock %}

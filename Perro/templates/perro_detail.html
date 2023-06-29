@@ -2,18 +2,25 @@
 
 {% block content %}
     {% csrf_token %}
+ <section>
     <h1>Detalle del perro</h1>
     <br>
         <img src="" alt="">
         <p>Nombre: {{ perro.nombre }}</p>
         <p>Edad: {{ perro.edad }}</p> 
         <p>Raza: {{ perro.raza }}</p>
-        <br>
-        <a href="{% url 'adoptperro' perro.id %}">Adoptame 🐶</a>
+    </section>
+    <section class="btn-redirect">
+        {% if perro.estado %}
+    
+           <a class="adopt-btn" href="{% url 'adoptperro' perro.id %}">Adoptame 🐶</a>
 
-        <br>
+           <a class="adopt-btn" href="{% url 'updateperro' perro.id %}" class="button">Editar</a>
+           <a class="adopt-btn" href="{% url 'perrolist' %}" class="button">Volver </a>
+        {% else %}
+            <a class="adopt-btn" href="{% url 'home' %}" class="button">Volver </a>
+        {% endif %}
+    </section>
 
-        <a href="{% url 'updateperro' perro.id %}" class="button">Editar</a>
-        <a href="{% url 'perrolist' %}" class="button">Cancelar</a>
         
 {% endblock %}
